@@ -2,5 +2,5 @@
 "PiezoDiameter"= 20mm
 "PiezoThickness"= 2.7mm
 "BackingThickness"= 10mm
-"MatchingThickness"= 2mm
+"MatchingThickness"= 0.5mm
 "ShelfThickness"= 1mm

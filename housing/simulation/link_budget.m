@@ -36,7 +36,9 @@ Gr = antenna_gain; % [] Recieve Gain
 d = 0.5:0.1:10; % [m] Test loss from distances 0.5-10 m
 
 transmit_loss = Gt .* (lambda./(4.*pi.*d)).^2 .* Kp;
-reflect_loss = Rp(Z_water, Z_ocean_floor);
+% Accordign to e80 lectures this should be close to 1
+% reflect_loss = Rp(Z_water, Z_ocean_floor); 0.33
+reflect_loss = 1;
 recieve_loss = Gr .* (lambda./(4.*pi.*d)).^2 .* Kp;
 Pr = Pt .* transmit_loss .* reflect_loss .* recieve_loss;
 
