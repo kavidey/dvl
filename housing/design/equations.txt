@@ -1,6 +1,6 @@
 ﻿"WallThickness" = 2mm
 "PiezoDiameter"= 20mm
-"PiezoThickness"= 2.7mm
+"PiezoThickness"= 2.8321mm
 "BackingThickness"= 10mm
 "MatchingThickness"= 0.5mm
 "ShelfThickness"= 1mm
