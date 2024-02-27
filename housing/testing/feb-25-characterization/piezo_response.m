@@ -11,6 +11,7 @@ for i = 1:length(metadata(1, :))
 end
 
 t = (1:length(wfm(1,:))) / Fs;
+R = 98.6; % [Ohm]
 %%
 clf
 close all
@@ -68,9 +69,11 @@ hold off
 % Find most prevalent frequency at each point in time
 [amp idx] = max(abs(X), [], 1);
 output_amp = amp;
+output_current = output_amp/R;
+
 
 figure(4)
-semilogx(input_freq, 20 * log(output_amp' ./ input_amp'))
+semilogx(input_freq, 20 * log(input_amp ./ output_current))
 xlabel('Frequency [Hz]')
 ylabel('Gain [dB]')
 title('Peizo Transfer Function')
