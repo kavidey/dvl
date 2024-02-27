@@ -11,9 +11,11 @@ for i = 1:length(metadata(1, :))
 end
 
 t = (1:length(wfm(1,:))) / Fs;
-
+%%
 clf
 close all
+
+set(gcf, "Color", "w")
 
 figure(1)
 hold on
@@ -39,6 +41,36 @@ ylabel("Voltage [V]")
 title("Cropped Data")
 legend("Input", "Output")
 hold off
-
+%%
 figure(3)
-pspectrum(cropped_input, cropped_t, 'spectrogram')
+% Take STFT of input
+binsize = floor(length(cropped_input)/100); 
+overlap_percent = 0.9;
+[ X, f, t, S ] = spectrogram(cropped_input, hamming(binsize), floor(binsize*overlap_percent), [], Fs);
+
+% Find most prevalent frequency at each point in time
+[amp idx] = max(abs(X), [], 1);
+input_freq = f(idx);
+input_amp = amp;
+
+hold on
+imagesc(t, f, pow2db(S))
+plot(t, input_freq, "LineWidth", 1.5, "Color", "black")
+set(gca,'YDir','normal')
+xlabel('Time [s]')
+ylabel('Frequency [Hz]')
+ylim([min(f) max(f)])
+title('Input Frequency')
+hold off
+
+% Take STFT of output
+[ X, f, t, S ] = spectrogram(cropped_output, hamming(binsize), floor(binsize*overlap_percent), [], Fs);
+% Find most prevalent frequency at each point in time
+[amp idx] = max(abs(X), [], 1);
+output_amp = amp;
+
+figure(4)
+semilogx(input_freq, 20 * log(output_amp' ./ input_amp'))
+xlabel('Frequency [Hz]')
+ylabel('Gain [dB]')
+title('Peizo Transfer Function')
