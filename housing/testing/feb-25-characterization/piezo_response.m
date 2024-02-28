@@ -45,13 +45,14 @@ hold off
 %%
 figure(3)
 % Take STFT of input
-binsize = floor(length(cropped_input)/100); 
-overlap_percent = 0.9;
+binsize = floor(length(cropped_input)/50); 
+overlap_percent = 0.99;
 [ X, f, t, S ] = spectrogram(cropped_input, hamming(binsize), floor(binsize*overlap_percent), [], Fs);
 
 % Find most prevalent frequency at each point in time
 [amp idx] = max(abs(X), [], 1);
 input_freq = f(idx);
+% input_freq = logspace(3,log10(2e6), length(input_freq));
 input_amp = amp;
 
 hold on
