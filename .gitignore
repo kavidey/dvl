@@ -1,7 +1,16 @@
+# MacOS
+.DS_Store
+
 # Solidworks
 ~$*.SLD*
+
+# Matlab
 matlabInVSCodeVariableInfo.csv
 
-pcb/e80_doppler/e80_doppler/History/
+# Altium
+pcb/e80_doppler/__Previews/
+pcb/e80_doppler/History/
+pcb/e80_doppler/Project Logs for e80_doppler/
 
-pcb/e80_doppler/e80_doppler/__Previews/
+# Lattice Radiant
+code/fpga/impl_1/
