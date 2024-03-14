@@ -706,6 +706,7 @@ run 100000
 # Data SDA 1 to 1
 # Data SDA 1 to 0
 write format wave -window .main_pane.wave.interior.cs.body.pw.wf Z:/github/dvl/code/fpga/sim/wave.do
+<<<<<<< HEAD
 # Compile of i2c_peripheral.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # 2 compiles, 0 failed with no errors.
@@ -792,3 +793,5 @@ restart -f
 # Loading work.i2c_peripheral
 run 200000
 # Starting Testbench...
+=======
+>>>>>>> 40f62bad6d332b2eebd677658579c306992eb437
