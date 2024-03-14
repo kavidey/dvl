@@ -706,3 +706,89 @@ run 100000
 # Data SDA 1 to 1
 # Data SDA 1 to 0
 write format wave -window .main_pane.wave.interior.cs.body.pw.wf Z:/github/dvl/code/fpga/sim/wave.do
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart-f
+# invalid command name "restart-f"
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 10000
+# Starting Testbench...
+run 100000
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 100000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restrat -f
+# invalid command name "restrat"
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 100000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 100000
+# Starting Testbench...
+run 200000
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 200000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 200000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 200000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 200000
+# Starting Testbench...

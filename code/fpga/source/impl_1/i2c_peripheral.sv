@@ -62,8 +62,8 @@ module i2c_peripheral #(
         ACK: begin
           if (ADDRESS == rx_reg[6:0]) begin
             counter <= 0;
-            rw <= rx_reg[0];
-            if (rx_reg[0] == 0) state <= RX;
+            rw <= rx_reg[7];
+            if (rx_reg[7] == 0) state <= RX;
             else state <= TX;
           end else begin
             state <= IDLE;
