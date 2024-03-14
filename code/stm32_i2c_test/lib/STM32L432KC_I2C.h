@@ -9,8 +9,8 @@ Header file for STM32L432KC_I2C.c
 #include <stdint.h>
 #include <stm32l432xx.h>
 
-#define I2C_SCL PB6
-#define I2C_SDA PB7
+#define I2C_SCL PA9
+#define I2C_SDA PA10
 
 ///////////////////////////////////////////////////////////////////////////////
 // Function prototypes
