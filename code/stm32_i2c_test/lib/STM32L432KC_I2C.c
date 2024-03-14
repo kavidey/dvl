@@ -9,6 +9,7 @@ This code defines the functions to initialize I2C communication
 
 #include "STM32L432KC.h"
 #include "STM32L432KC_I2C.h"
+#include "stm32l432xx.h"
 
 // This function initializes the I2C libaray
 void initI2C(void) {
@@ -23,7 +24,8 @@ void initI2C(void) {
 
   // Set pins to standard Speed
   SYSCFG->CFGR1 &= ~SYSCFG_CFGR1_I2C1_FMP;
-  SYSCFG->CFGR1 &= ~SYSCFG_CFGR1_I2C_PB6_FMP;
+  // SYSCFG->CFGR1 &= ~SYSCFG_CFGR1_I2C_PB6_FMP;
+  // SYSCFG->CFGR1 &= ~SYSCFG_CFGR1_I2C_PB7_FMP;
 
   // ANFOFF
   I2C1->CR1 |= I2C_CR1_ANFOFF;
@@ -39,10 +41,10 @@ void initI2C(void) {
   I2C1->TIMINGR |= _VAL2FLD(I2C_TIMINGR_SCLL, 0x13);
 
   // Enable interrupt flags
-  // I2C1->CR1 |= I2C_CR1_RXIE;
-  // I2C1->CR1 |= I2C_CR1_TXIE;
-  // I2C1->CR1 |= I2C_CR1_NACKIE;
-  // I2C1->CR1 |= I2C_CR1_STOPIE;
+  I2C1->CR1 |= I2C_CR1_RXIE;
+  I2C1->CR1 |= I2C_CR1_TXIE;
+  I2C1->CR1 |= I2C_CR1_NACKIE;
+  I2C1->CR1 |= I2C_CR1_STOPIE;
 
   // NOSTRETCH
   I2C1->CR1 &= ~(I2C_CR1_NOSTRETCH);
@@ -64,7 +66,7 @@ void initI2C(void) {
 
   // Set to AF04 for I2C alternate functions
   GPIOA->AFR[1] |= _VAL2FLD(GPIO_AFRH_AFSEL9, 4);
-  GPIOB->AFR[0] |= _VAL2FLD(GPIO_AFRL_AFSEL7, 4);
+  GPIOB->AFR[1] |= _VAL2FLD(GPIO_AFRH_AFSEL10, 4);
 
   // Set output type to open-drain
   GPIOA->OTYPER |= GPIO_OTYPER_OT9;

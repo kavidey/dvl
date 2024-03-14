@@ -1,2 +1,3 @@
-ldc_set_location -site {27} [get_ports scl]
-ldc_set_location -site {26} [get_ports sda]
+ldc_set_location -site {25} [get_ports scl]
+ldc_set_location -site {23} [get_ports sda]
+ldc_set_port -iobuf {PULLMODE=NA} [get_ports txrx]

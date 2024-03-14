@@ -24,15 +24,17 @@ int main(void) {
   gpioEnable(GPIO_PORT_B);
   gpioEnable(GPIO_PORT_C);
 
-  initI2C();
-
   // Initialize USART
   USART_TypeDef *USART_DEBUG = initUSART(USART2_ID, 9600);
+
+  initI2C();
+  sendString(USART_DEBUG, "I2C Initialized\n");
 
   char responseStr[20];
   char * response;
   while (1) {
     response = readI2C(0x42, 0x00, 1);
+    //response = readI2C(0b0100001, 0x00, 1);
     sprintf(responseStr, "Received: %02x\n", response[0]);
     sendString(USART_DEBUG, responseStr);
   }
