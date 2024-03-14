@@ -20,3 +20,5 @@ code/fpga/dvl_tcr.dir/
 *.iverilog
 
 *.vcd
+
+.vscode/

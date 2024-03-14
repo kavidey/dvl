@@ -1,0 +1,13 @@
+DRC: Design Rule Check Radiant Software (64-bit) 2023.1.1.200.1
+Thu Mar 14 16:11:57 2024
+
+WARNING <71003020> - Top module port 'adc[9]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[8]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[7]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[6]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[5]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[4]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[3]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[2]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[1]' does not connect to anything.
+WARNING <71003020> - Top module port 'adc[0]' does not connect to anything.

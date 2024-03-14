@@ -1,0 +1,2 @@
+ldc_set_location -site {27} [get_ports scl]
+ldc_set_location -site {26} [get_ports sda]

@@ -29,6 +29,7 @@ module i2c_peripheral #(
   assign scl = 1'bz;
 
 
+  // Detect start/stop conditios
   always_ff @(negedge sda) begin : sda_fall
     if (state == IDLE && scl == 1) begin
       start <= 1;
@@ -41,6 +42,7 @@ module i2c_peripheral #(
     end else stop <= 0;
   end
 
+  // Handle TX/RX
   always_ff @(posedge scl) begin : scl_rise
     if (start == 1 && state == IDLE) begin
       state   <= DEVICE_ADDRESS;
@@ -67,6 +69,7 @@ module i2c_peripheral #(
             state <= ACK;
           end
         end
+        // Acknowledge device address recieved if we are the intended device
         ACK: begin
           if (ADDRESS == rx_reg[6:0]) begin
             counter <= 0;
@@ -95,6 +98,7 @@ module i2c_peripheral #(
             state <= CACK;
           end
         end
+        // Get ACK/NACK from controller
         CACK: begin
           counter <= 0;
           if (sda == 0) begin  // NACK
@@ -109,7 +113,7 @@ module i2c_peripheral #(
     end
   end
 
-  // this is kind of like the output logic of the state machine
+  // Output logic (this isn't a real state machine, but this is the closest thing to the output block)
   always_ff @(negedge scl) begin : scl_fall
     case (state)
       IDLE: begin
@@ -120,8 +124,12 @@ module i2c_peripheral #(
         output_enable <= 0;
       end
       ACK: begin
-        output_enable <= 1;
-        sda_out <= 0;
+        if (ADDRESS == rx_reg[6:0]) begin
+          output_enable <= 1;
+          sda_out <= 0;
+        end else begin
+          output_enable <= 0;
+        end
       end
       RX: begin
         output_enable <= 0;
