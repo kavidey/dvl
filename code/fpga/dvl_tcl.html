@@ -40,7 +40,45 @@ if (a)
 <BODY>
 
 <DIV id="content" onclick="hideTocList()"><PRE>
+<A name="pn240313235746"></A><B><U><big>pn240313235746</big></U></B>
+#Start recording tcl command: 3/11/2024 23:04:29
+#Project Location: Z:/github/dvl/code/fpga; Project name: dvl
+prj_create -name "dvl" -impl "impl_1" -dev iCE40UP5K-SG48I -performance "High-Performance_1.2V" -synthesis "lse"
+prj_save 
+prj_add_source "Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv"
+prj_run PAR -impl impl_1
+#Stop recording: 3/13/2024 23:57:46
+
+
+
+<A name="pn240314114941"></A><B><U><big>pn240314114941</big></U></B>
+#Start recording tcl command: 3/12/2024 17:02:03
+#Project Location: Z:/github/dvl/code/fpga; Project name: dvl
+prj_open "Z:/github/dvl/code/fpga/dvl.rdf"
+prj_add_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv" "Z:/github/dvl/code/fpga/source/impl_1/i2c_test.sv"
+prj_disable_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv"
+prj_disable_source "Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv"
+prj_run PAR -impl impl_1
+prj_run Export -impl impl_1
+prj_remove_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_test.sv"
+prj_add_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_test.v"
+prj_run Synthesis -impl impl_1
+prj_remove_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_test.v"
+prj_add_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_test.v"
+prj_run Synthesis -impl impl_1
+prj_remove_source "Z:/github/dvl/code/fpga/source/impl_1/i2c_test.v"
+#Stop recording: 3/14/2024 11:49:41
+
+
+
 </PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#pn240313235746>pn240313235746</A></LI>
+<LI><A href=#pn240314114941>pn240314114941</A></LI>
+</UL>
+</DIV>
 
 <button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
 <script type="text/javascript">
