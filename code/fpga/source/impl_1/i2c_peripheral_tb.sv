@@ -40,6 +40,10 @@ module i2c_peripheral_tb ();
   initial begin
     $display("Starting Testbench...");
 
+    // Reset
+    sda_drive = 0; #3;
+    sda_drive = 1; #5;
+
     ////// TEST WRITING //////
     
     // Signal START

@@ -7,7 +7,7 @@ module i2c_peripheral #(
     inout logic sda,
 
     output logic [7:0] rx,
-    output logic rw // 0 is read, 1 is write
+    output logic rw  // 0 is read, 1 is write
 );
   enum int {
     IDLE,
@@ -16,16 +16,12 @@ module i2c_peripheral #(
     RX,
     ACK2,
     TX,
-    CACK // controller acknowledge
+    CACK  // controller acknowledge
   } state;
 
-  enum int {
-    START,
-    STOP
-  } start_stop;
-
-  logic [4:0] counter;
+  logic [3:0] counter;
   logic [7:0] rx_reg;
+  logic start, stop;
 
   // Output Logic
   logic sda_out, output_enable;
@@ -34,26 +30,38 @@ module i2c_peripheral #(
 
 
   always_ff @(negedge sda) begin : sda_fall
-    if (start_stop == STOP && scl == 1) begin
-      start_stop <= START;
-      counter <= 0;
-      state <= DEVICE_ADDRESS;
-    end
+    if (state == IDLE && scl == 1) begin
+      start <= 1;
+    end else if (state == IDLE) start <= 0;
   end
 
   always_ff @(posedge sda) begin : sda_rise
-    if (start_stop == START && scl == 1) begin
-      start_stop <= STOP;
-      counter <= 0;
-      state <= IDLE;
-    end
+    if (start == 1 && scl == 1) begin
+      stop <= 1;
+    end else stop <= 0;
   end
 
   always_ff @(posedge scl) begin : scl_rise
-    if (start_stop == START) begin
+    if (start == 1 && state == IDLE) begin
+      state   <= DEVICE_ADDRESS;
+      rx_reg  <= {sda, rx_reg[7:1]};
+      counter <= counter + 1;
+      if (counter == 7) begin
+        state <= ACK;
+      end
+    end else if (stop == 1) begin
+      state   <= IDLE;
+      counter <= 0;
+    end else begin
       case (state)
+        IDLE: begin  // I think this is unreachable?
+          counter <= 0;
+        end
+        // state can't be modified in multiple always_ff blocks, the "first"
+        // we need to enter the first state in a special way, this is done
+        // above in the if statement
         DEVICE_ADDRESS: begin
-          rx_reg <= {sda, rx_reg[7:1]};
+          rx_reg  <= {sda, rx_reg[7:1]};
           counter <= counter + 1;
           if (counter == 7) begin
             state <= ACK;
@@ -70,7 +78,7 @@ module i2c_peripheral #(
           end
         end
         RX: begin
-          rx_reg <= {sda, rx_reg[7:1]};
+          rx_reg  <= {sda, rx_reg[7:1]};
           counter <= counter + 1;
           if (counter == 7) begin
             state <= ACK2;
@@ -88,9 +96,10 @@ module i2c_peripheral #(
           end
         end
         CACK: begin
-          if (sda == 0) begin // NACK
+          counter <= 0;
+          if (sda == 0) begin  // NACK
             state <= IDLE;
-          end else begin // ACK
+          end else begin  // ACK
             state <= TX;
           end
         end
@@ -103,6 +112,10 @@ module i2c_peripheral #(
   // this is kind of like the output logic of the state machine
   always_ff @(negedge scl) begin : scl_fall
     case (state)
+      IDLE: begin
+        output_enable <= 0;
+        sda_out <= 0;
+      end
       DEVICE_ADDRESS: begin
         output_enable <= 0;
       end
@@ -126,7 +139,7 @@ module i2c_peripheral #(
       end
       default: begin
         output_enable <= 0;
-        start_stop <= STOP;
+        sda_out <= 0;
       end
     endcase
   end
