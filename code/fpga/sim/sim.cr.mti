@@ -1,0 +1,8 @@
+Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module i2c_peripheral_tb
+
+Top level modules:
+	i2c_peripheral_tb
+
+} {} {}}

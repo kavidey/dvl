@@ -14,3 +14,9 @@ pcb/e80_doppler/Project Logs for e80_doppler/
 
 # Lattice Radiant
 code/fpga/impl_1/
+
+code/fpga/dvl_tcr.dir/
+
+*.iverilog
+
+*.vcd
