@@ -70,7 +70,7 @@ void initI2C(void) {
 
   // Set output type to open-drain
   GPIOA->OTYPER |= GPIO_OTYPER_OT9;
-  GPIOB->OTYPER |= GPIO_OTYPER_OT7;
+  GPIOA->OTYPER |= GPIO_OTYPER_OT10;
 }
 
 void writeI2C(char dev_addr, char memory_addr, char *data, int nbytes) {
@@ -147,7 +147,7 @@ char *readI2C(char dev_addr, char memory_addr, int nbytes) {
 
   // Set number of bytes for transfer
   I2C1->CR2 &= ~(I2C_CR2_NBYTES);
-  I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, 0x06);
+  I2C1->CR2 |= _VAL2FLD(I2C_CR2_NBYTES, nbytes);
 
   // Set START bit
   I2C1->CR2 |= I2C_CR2_START;

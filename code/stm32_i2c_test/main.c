@@ -25,17 +25,18 @@ int main(void) {
   gpioEnable(GPIO_PORT_C);
 
   // Initialize USART
-  USART_TypeDef *USART_DEBUG = initUSART(USART2_ID, 9600);
+  //USART_TypeDef *USART_DEBUG = initUSART(USART2_ID, 115200);
 
   initI2C();
-  sendString(USART_DEBUG, "I2C Initialized\n");
+  //sendString(USART_DEBUG, "I2C Initialized\n");
 
-  char responseStr[20];
-  char * response;
+  //char responseStr[20];
+  //char * response;
+  char write[1] = {0x63};
   while (1) {
-    response = readI2C(0x42, 0x00, 1);
-    //response = readI2C(0b0100001, 0x00, 1);
-    sprintf(responseStr, "Received: %02x\n", response[0]);
-    sendString(USART_DEBUG, responseStr);
+    // response = readI2C(0x42, 0x00, 1);
+    writeI2C(0x42, 0x63, write, 1);
+    //sprintf(responseStr, "Received: %02x\n", response[0]);
+    //sendString(USART_DEBUG, responseStr);
   }
 }
