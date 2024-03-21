@@ -46,7 +46,7 @@ module i2c_peripheral #(
   always_ff @(posedge scl) begin : scl_rise
     if (start == 1 && state == IDLE) begin
       state   <= DEVICE_ADDRESS;
-      rx_reg  <= {sda, rx_reg[7:1]};
+      rx_reg  <= {rx_reg[6:0], sda};
       counter <= counter + 1;
       if (counter == 7) begin
         state <= ACK;
@@ -63,7 +63,7 @@ module i2c_peripheral #(
         // we need to enter the first state in a special way, this is done
         // above in the if statement
         DEVICE_ADDRESS: begin
-          rx_reg  <= {sda, rx_reg[7:1]};
+          rx_reg  <= {rx_reg[6:0], sda};
           counter <= counter + 1;
           if (counter == 7) begin
             state <= ACK;
@@ -71,10 +71,10 @@ module i2c_peripheral #(
         end
         // Acknowledge device address recieved if we are the intended device
         ACK: begin
-          if (ADDRESS == rx_reg[6:0]) begin
+          if (ADDRESS == rx_reg[7:1]) begin
             counter <= 0;
-            rw <= rx_reg[7];
-            if (rx_reg[7] == 0) state <= RX;
+            rw <= rx_reg[0];
+            if (rx_reg[0] == 0) state <= RX;
             else state <= TX;
           end else begin
             state <= IDLE;
@@ -124,7 +124,7 @@ module i2c_peripheral #(
         output_enable <= 0;
       end
       ACK: begin
-        if (ADDRESS == rx_reg[6:0]) begin
+        if (ADDRESS == rx_reg[7:1]) begin
           output_enable <= 1;
           sda_out <= 0;
         end else begin

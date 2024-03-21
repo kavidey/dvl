@@ -11,7 +11,7 @@ module i2c_peripheral_tb ();
   logic scl_drive, sda_drive;
   logic rw;
   logic [7:0] tx, rx;
-  assign tx = 7'h66;
+  assign tx  = 7'h66;
 
   assign scl = scl_drive;
   assign sda = sda_drive;
@@ -41,33 +41,44 @@ module i2c_peripheral_tb ();
     $display("Starting Testbench...");
 
     // Reset
-    sda_drive = 0; #3;
-    sda_drive = 1; #5;
+    sda_drive = 0;
+    #3;
+    sda_drive = 1;
+    #5;
 
     ////// TEST WRITING //////
-    
+
     // Signal START
-    sda_drive = 1; #7;
-    sda_drive = 0; #1;
+    sda_drive = 1;
+    #7;
+    sda_drive = 0;
+    #1;
 
     // Write device address
-    for (ii = 0; ii < 7; ii = ii + 1) begin
-      sda_drive = device_address[ii]; #4;
+    for (ii = 6; 0 <= ii; ii = ii - 1) begin
+      sda_drive = device_address[ii];
+      #4;
     end
-    sda_drive = 0'b0; #4; // Write W
-    sda_drive = 1'bz; #4; // Wait for ACK
+    sda_drive = 0'b0;
+    #4;  // Write W
+    sda_drive = 1'bz;
+    #4;  // Wait for ACK
 
     // Write memory address
     for (ii = 0; ii < 8; ii = ii + 1) begin
-      sda_drive = memory_address[ii]; #4;
+      sda_drive = memory_address[ii];
+      #4;
     end
-    sda_drive = 1'bz; #4; // Wait for ACK
+    sda_drive = 1'bz;
+    #4;  // Wait for ACK
 
     // Write memory value
     for (ii = 0; ii < 8; ii = ii + 1) begin
-      sda_drive = memory_value[ii]; #4;
+      sda_drive = memory_value[ii];
+      #4;
     end
-    sda_drive = 1'bz; #4; // Wait for ACK
+    sda_drive = 1'bz;
+    #4;  // Wait for ACK
 
     // Signal STOP
     #3;
@@ -78,39 +89,52 @@ module i2c_peripheral_tb ();
 
     // Signal START
     sda_drive = 1;
-    #7
-    sda_drive = 0;
+    #7 sda_drive = 0;
     #1
 
     // Write device address
-    for (ii = 0; ii < 7; ii = ii + 1) begin
-      sda_drive = device_address[ii]; #4;
+    for (
+        ii = 0; ii < 7; ii = ii + 1
+    ) begin
+      sda_drive = device_address[ii];
+      #4;
     end
-    sda_drive = 1'b0; #4; // Write W
-    sda_drive = 1'bz; #4; // Wait for ACK
+    sda_drive = 1'b0;
+    #4;  // Write W
+    sda_drive = 1'bz;
+    #4;  // Wait for ACK
 
     // Write memory address
     for (ii = 0; ii < 8; ii = ii + 1) begin
-      sda_drive = memory_address[ii]; #4;
+      sda_drive = memory_address[ii];
+      #4;
     end
-    sda_drive = 1'bz; #4; // Wait for ACK
+    sda_drive = 1'bz;
+    #4;  // Wait for ACK
 
     // Send STOP and START again
     #3;
-    sda_drive <= 1'b1; #4;
-    sda_drive <= 1'b0; #1;
+    sda_drive <= 1'b1;
+    #4;
+    sda_drive <= 1'b0;
+    #1;
 
 
     // Write device address
     for (ii = 0; ii < 7; ii = ii + 1) begin
-      sda_drive = device_address[ii]; #4;
+      sda_drive = device_address[ii];
+      #4;
     end
-    sda_drive = 1'b1; #4; // Write W
-    sda_drive = 1'bz; #4; // Wait for ACK
+    sda_drive = 1'b1;
+    #4;  // Write W
+    sda_drive = 1'bz;
+    #4;  // Wait for ACK
 
-    sda_drive = 1'bz; #32;
-    sda_drive = 1'b0; #4; // Send ACK
-    
+    sda_drive = 1'bz;
+    #32;
+    sda_drive = 1'b0;
+    #4;  // Send ACK
+
     // Signal STOP
     #3;
     sda_drive = 1;
