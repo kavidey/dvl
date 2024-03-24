@@ -6,8 +6,7 @@
 module h_bridge (
     input logic clk,
     rst,
-    input dvl_pkg::h_bridge_state_t state,
-
+    input logic [1:0] state,
     output logic hlh,
     hll,
     hrh,
@@ -15,26 +14,10 @@ module h_bridge (
 );
 
   // Divide 48 MHz by 2^6 to get 0.75 MHz
-  logic [5:0] din;
-  logic [5:0] clkdiv;
-  dff dff_inst0 (
-      .clk(clk),
-      .rst(rst),
-      .D  (din[0]),
-      .Q  (clkdiv[0])
-  );
-  genvar i;
-  generate
-    for (i = 1; i < 6; i = i + 1) begin : dff_gen_label
-      dff dff_inst (
-          .clk(clkdiv[i-1]),
-          .rst(rst),
-          .D  (din[i]),
-          .Q  (clkdiv[i])
-      );
-    end
-  endgenerate
-  ;
+  logic [5:0] counter;
+  always @(posedge clk) counter <= counter + 1;
+  assign clkdiv = counter[5];
+
   //   always_comb begin : output_logic
   //     case (state)
   //       dvl_pkg::HIGHZ: begin
@@ -63,8 +46,8 @@ module h_bridge (
   //       end
   //     endcase
   //   end
-  assign hlh = clkdiv[5];
-  assign hll = ~clkdiv[5];
-  assign hrh = ~clkdiv[5];
-  assign hrl = clkdiv[5];
+  assign hlh = clkdiv;
+  assign hll = ~clkdiv;
+  assign hrh = ~clkdiv;
+  assign hrl = clkdiv;
 endmodule

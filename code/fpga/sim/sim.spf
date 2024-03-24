@@ -1,9 +1,0 @@
-<RadiantSimulationProject simType="ModelSim" name="sim" version="2.0" language="1" stage="0" path=".">
-    <Source include="none" worklib="work" type="VERILOG" langstandard="System Verilog" path="source/impl_1/i2c_peripheral.sv"/>
-    <Source include="none" worklib="work" type="VERILOG" langstandard="System Verilog" path="source/impl_1/i2c_peripheral_tb.sv"/>
-    <SimLib value="pmi_work ovi_ice40up"/>
-    <GlbInc value=""/>
-    <Macro value=""/>
-    <Udo value=""/>
-    <TopModule instance="" name="i2c_peripheral_tb" language="VERILOG"/>
-</RadiantSimulationProject>
