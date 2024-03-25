@@ -3,6 +3,8 @@
  * Created:   3/20/24
  */
 
+`include "dvl_params.sv"
+
 module h_bridge (
     input logic clk,
     rst,
@@ -18,36 +20,32 @@ module h_bridge (
   always @(posedge clk) counter <= counter + 1;
   assign clkdiv = counter[5];
 
-  //   always_comb begin : output_logic
-  //     case (state)
-  //       dvl_pkg::HIGHZ: begin
-  //         hlh = 0;
-  //         hll = 0;
-  //         hrh = 0;
-  //         hrl = 0;
-  //       end
-  //       dvl_pkg::DAMP: begin
-  //         hlh = 0;
-  //         hll = 1;
-  //         hrh = 0;
-  //         hrl = 1;
-  //       end
-  //       dvl_pkg::OSCL: begin
-  //         hlh = clk;
-  //         hll = ~clk;
-  //         hrh = ~clk;
-  //         hrl = clk;
-  //       end
-  //       default: begin
-  //         hlh = 0;
-  //         hll = 0;
-  //         hrh = 0;
-  //         hrl = 0;
-  //       end
-  //     endcase
-  //   end
-  assign hlh = clkdiv;
-  assign hll = ~clkdiv;
-  assign hrh = ~clkdiv;
-  assign hrl = clkdiv;
+  always_comb begin : output_logic
+    case (state)
+      `HB_HIGHZ: begin
+        hlh = 0;
+        hll = 0;
+        hrh = 0;
+        hrl = 0;
+      end
+      `HB_DAMP: begin
+        hlh = 0;
+        hll = 1;
+        hrh = 0;
+        hrl = 1;
+      end
+      `HB_OSCL: begin
+        hlh = clkdiv;
+        hll = ~clkdiv;
+        hrh = ~clkdiv;
+        hrl = clkdiv;
+      end
+      default: begin
+        hlh = 0;
+        hll = 0;
+        hrh = 0;
+        hrl = 0;
+      end
+    endcase
+  end
 endmodule
