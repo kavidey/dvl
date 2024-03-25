@@ -1,3 +1,4 @@
-Record=TopLevelDocument|FileName=analog.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=analog.SchDoc|FileName=digital.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=analog.SchDoc|FileName=simulation.SchDoc|SheetNumber=3
+Record=TopLevelDocument|FileName=analog.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=analog.SchDoc|FileName=digital.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=analog.SchDoc|FileName=interface.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=analog.SchDoc|FileName=simulation.SchDoc|SheetNumber=4
