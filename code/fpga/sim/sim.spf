@@ -1,0 +1,13 @@
+<RadiantSimulationProject language="1" name="sim" simType="ModelSim" version="2.0" stage="0" path=".">
+    <Source worklib="work" langstandard="System Verilog" include="none" type="VERILOG" path="source/impl_1/i2c_peripheral.sv"/>
+    <Source worklib="work" langstandard="System Verilog" include="none" type="VERILOG" path="source/impl_1/h_bridge.sv"/>
+    <Source worklib="work" langstandard="System Verilog" include="none" type="VERILOG" path="source/impl_1/dvl_top.sv"/>
+    <Source worklib="work" langstandard="System Verilog" include="none" type="VERILOG" path="source/impl_1/dff.sv"/>
+    <Source worklib="work" langstandard="System Verilog" include="none" type="VERILOG" path="source/impl_1/i2c_peripheral_tb.sv"/>
+    <Source worklib="work" langstandard="" include="none" type="VERILOG" path="sysclk_pll/rtl/sysclk_pll.v"/>
+    <SimLib value="pmi_work ovi_ice40up"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <Udo value=""/>
+    <TopModule language="VERILOG" name="i2c_peripheral_tb" instance=""/>
+</RadiantSimulationProject>

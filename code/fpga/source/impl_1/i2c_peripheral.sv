@@ -2,11 +2,13 @@ module i2c_peripheral #(
     parameter ADDRESS = 7'h42
 ) (
     input logic [7:0] tx,
+    input logic rst,
 
     inout logic scl,
     inout logic sda,
 
     output logic [7:0] rx,
+    output logic debug,
     output logic rw  // 0 is read, 1 is write
 );
   enum int {
@@ -25,15 +27,22 @@ module i2c_peripheral #(
 
   // Output Logic
   logic sda_out, output_enable;
-  assign sda = (output_enable == 1) ? sda_out : 1'bz;
-  assign scl = 1'bz;
+  assign sda   = (output_enable == 1) ? sda_out : 1'bz;
+  assign scl   = 1'bz;
 
+  assign debug = start;
 
-  // Detect start/stop conditios
-  always_ff @(negedge sda) begin : sda_fall
-    if (state == IDLE && scl == 1) begin
-      start <= 1;
-    end else if (state == IDLE) start <= 0;
+  // Detect start/stop conditions
+  always_ff @(negedge sda or posedge rst) begin : sda_fall
+    if (rst) start <= 0;
+    else begin
+      if (state == IDLE && scl == 1 && rst == 0) start <= 1;
+    end
+    // if (state == IDLE && scl == 1 && rst == 0) begin
+    //   start <= 1;
+    // end else start <= 0;
+    // else if (state == IDLE) start <= 0;
+    // else start <= start & (~stop);
   end
 
   always_ff @(posedge sda) begin : sda_rise
@@ -43,73 +52,78 @@ module i2c_peripheral #(
   end
 
   // Handle TX/RX
-  always_ff @(posedge scl) begin : scl_rise
-    if (start == 1 && state == IDLE) begin
-      state   <= DEVICE_ADDRESS;
-      rx_reg  <= {rx_reg[6:0], sda};
-      counter <= counter + 1;
-      if (counter == 7) begin
-        state <= ACK;
-      end
-    end else if (stop == 1) begin
-      state   <= IDLE;
-      counter <= 0;
+  always_ff @(posedge scl or posedge rst) begin : scl_rise
+    if (rst) begin
+        counter <= 0;
+        state <= IDLE;
     end else begin
-      case (state)
-        IDLE: begin  // I think this is unreachable?
-          counter <= 0;
+      if (start == 1 && state == IDLE) begin
+        state   <= DEVICE_ADDRESS;
+        rx_reg  <= {rx_reg[6:0], sda};
+        counter <= counter + 1;
+        if (counter == 7) begin
+          state <= ACK;
         end
-        // state can't be modified in multiple always_ff blocks, the "first"
-        // we need to enter the first state in a special way, this is done
-        // above in the if statement
-        DEVICE_ADDRESS: begin
-          rx_reg  <= {rx_reg[6:0], sda};
-          counter <= counter + 1;
-          if (counter == 7) begin
-            state <= ACK;
-          end
-        end
-        // Acknowledge device address recieved if we are the intended device
-        ACK: begin
-          if (ADDRESS == rx_reg[7:1]) begin
+      end else if (stop == 1) begin
+        state   <= IDLE;
+        counter <= 0;
+      end else begin
+        case (state)
+          IDLE: begin  // I think this is unreachable?
             counter <= 0;
-            rw <= rx_reg[0];
-            if (rx_reg[0] == 0) state <= RX;
-            else state <= TX;
-          end else begin
-            state <= IDLE;
           end
-        end
-        RX: begin
-          rx_reg  <= {sda, rx_reg[7:1]};
-          counter <= counter + 1;
-          if (counter == 7) begin
-            state <= ACK2;
+          // state can't be modified in multiple always_ff blocks, the "first"
+          // we need to enter the first state in a special way, this is done
+          // above in the if statement
+          DEVICE_ADDRESS: begin
+            rx_reg  <= {rx_reg[6:0], sda};
+            counter <= counter + 1;
+            if (counter == 7) begin
+              state <= ACK;
+            end
           end
-        end
-        ACK2: begin
-          state <= RX;
-          counter <= 0;
-          rx <= rx_reg;
-        end
-        TX: begin
-          counter <= counter + 1;
-          if (counter == 7) begin
-            state <= CACK;
+          // Acknowledge device address recieved if we are the intended device
+          ACK: begin
+            if (ADDRESS == rx_reg[7:1]) begin
+              counter <= 0;
+              rw <= rx_reg[0];
+              if (rx_reg[0] == 0) state <= RX;
+              else state <= TX;
+            end else begin
+              state <= IDLE;
+            end
           end
-        end
-        // Get ACK/NACK from controller
-        CACK: begin
-          counter <= 0;
-          if (sda == 0) begin  // NACK
-            state <= IDLE;
-          end else begin  // ACK
-            state <= TX;
+          RX: begin
+            rx_reg  <= {sda, rx_reg[7:1]};
+            counter <= counter + 1;
+            if (counter == 7) begin
+              state <= ACK2;
+            end
           end
-        end
-        default: begin
-        end
-      endcase
+          ACK2: begin
+            state <= RX;
+            counter <= 0;
+            rx <= rx_reg;
+          end
+          TX: begin
+            counter <= counter + 1;
+            if (counter == 7) begin
+              state <= CACK;
+            end
+          end
+          // Get ACK/NACK from controller
+          CACK: begin
+            counter <= 0;
+            if (sda == 0) begin  // NACK
+              state <= IDLE;
+            end else begin  // ACK
+              state <= TX;
+            end
+          end
+          default: begin
+          end
+        endcase
+      end
     end
   end
 

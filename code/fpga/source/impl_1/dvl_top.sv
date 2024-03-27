@@ -9,17 +9,18 @@ module dvl_top (
     // input logic [9:0] adc,
     input logic rst,
 
-    // inout logic sda,
-    // inout logic scl,
+    inout logic sda,
+    inout logic scl,
 
     output logic txrx,
     output logic hlh,
     hll,
     hrh,
-    hrl
+    hrl,
+    output logic debug
 );
 
-  logic hsclk;//, core_clk, clk;
+  logic hsclk;  //, core_clk, clk;
   HSOSC #(
       .CLKHF_DIV(2'b00)
   ) hf_osc (
@@ -30,6 +31,9 @@ module dvl_top (
 
   assign txrx = rst;
 
+  logic reset_active_low;
+  assign reset_active_low = ~rst;
+
   //   sysclk_pll clk_pll (
   //       .ref_clk_i(hsclk),
   //       .rst_n_i(rst),
@@ -37,22 +41,29 @@ module dvl_top (
   //       .outglobal_o(core_clk)
   //   );
 
-    logic reset_active_high;
-    assign reset_active_high = ~rst;
+  logic [7:0] tx, rx;
+  logic rw;
 
-  //   logic [7:0] tx, rx;
-  //   logic rw;
+  assign tx = 8'h21;
 
-  //   assign tx = 8'h21;
+  i2c_peripheral #(7'h42) i2c_peripheral (
+      .tx(tx),
+      .rst(rst),
+      .scl(scl),
+      .sda(sda),
+      .rx(rx),
+      .rw(rw),
+      .debug(debug)
+  );
 
-  //   i2c_peripheral #(7'h42) i2c_peripheral (
-  //       .tx (tx),
-  //       .scl(scl),
-  //       .sda(sda),
-  //       .rx (rx),
-  //       .rw (rw)
-  //   );
-
-    logic [1:0] hstate = `HB_OSCL;
-    h_bridge h_bridge(hsclk, reset_active_high, hstate, hlh, hll, hrh, hrl);
+  logic [1:0] hstate = `HB_OSCL;
+  h_bridge h_bridge (
+      hsclk,
+      rst,
+      hstate,
+      hlh,
+      hll,
+      hrh,
+      hrl
+  );
 endmodule

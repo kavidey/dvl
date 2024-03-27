@@ -1,0 +1,29 @@
+if {![file exists "Z:/github/dvl/code/fpga/sim/sim.mpf"]} { 
+	project new "Z:/github/dvl/code/fpga/sim" sim
+	project addfile "Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv" verilog
+	project addfile "Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv" verilog
+	project addfile "Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv" verilog
+	project addfile "Z:/github/dvl/code/fpga/source/impl_1/dff.sv" verilog
+	project addfile "Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv" verilog
+	project addfile "Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v" verilog
+	vlib  work
+	vdel -lib work -all 
+	vlib work
+
+	vlog  "+incdir+Z:/github/dvl/code/fpga/sysclk_pll/rtl" -work work  "Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v" -suppress 2388
+	vlog -sv -mfcu \
+	"+incdir+Z:/github/dvl/code/fpga/source/impl_1" \
+ -work work \
+	"Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv" \
+	"Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv" \
+	"Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv" \
+	"Z:/github/dvl/code/fpga/source/impl_1/dff.sv" \
+	"Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv"
+} else {
+	project open "Z:/github/dvl/code/fpga/sim/sim"
+	project compileoutofdate
+}
+vsim -voptargs=+acc -lib work -L pmi_work -L ovi_ice40up  -suppress vsim-7033,vsim-8630,3009,3389 i2c_peripheral_tb 
+view wave
+add wave /*
+run 100 ns
