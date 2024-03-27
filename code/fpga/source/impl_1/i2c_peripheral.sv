@@ -21,7 +21,7 @@ module i2c_peripheral #(
     CACK  // controller acknowledge
   } state;
 
-  logic [3:0] counter;
+  logic [2:0] counter;
   logic [7:0] rx_reg;
   logic start, stop;
 
@@ -30,13 +30,13 @@ module i2c_peripheral #(
   assign sda   = (output_enable == 1) ? sda_out : 1'bz;
   assign scl   = 1'bz;
 
-  assign debug = counter[0];
+  assign debug = state == CACK;
 
   // Detect start/stop conditions
   always_ff @(negedge sda or posedge rst) begin : sda_fall
     if (rst) start <= 0;
     else begin
-      if (state == IDLE && scl == 1 && rst == 0) start <= 1;
+      if (state == IDLE && scl == 1 && rst == 0 && output_enable == 0) start <= 1;
     end
     // if (state == IDLE && scl == 1 && rst == 0) begin
     //   start <= 1;
@@ -46,7 +46,7 @@ module i2c_peripheral #(
   end
 
   always_ff @(posedge sda) begin : sda_rise
-    if (start == 1 && scl == 1) begin
+    if (start == 1 && scl == 1 && output_enable == 0) begin
       stop <= 1;
     end else stop <= 0;
   end
@@ -87,11 +87,11 @@ module i2c_peripheral #(
             if (ADDRESS == rx_reg[7:1]) begin
               rw <= rx_reg[0];
               if (rx_reg[0] == 0) begin
-                state   <= RX;
                 counter <= 0;
+                state   <= RX;
               end else begin
-                state <= TX;
                 counter <= 7;
+                state   <= TX;
               end
             end else begin
               state <= IDLE;
@@ -117,9 +117,9 @@ module i2c_peripheral #(
           end
           // Get ACK/NACK from controller
           CACK: begin
-            counter <= 0;
-            if (sda == 0) begin  // NACK
-              state <= IDLE;
+            if (sda == 1) begin  // NACK
+              counter <= 0;
+              state   <= IDLE;
             end else begin  // ACK
               counter <= 7;
               state   <= TX;
