@@ -10,9 +10,12 @@ module i2c_peripheral_tb ();
   wire scl, sda;
   logic scl_drive, sda_drive;
   logic rw;
+  logic debug, rst;
   logic [7:0] tx, rx;
   assign tx  = 7'h66;
-
+  
+  assign rst = 0;
+  
   assign scl = scl_drive;
   assign sda = sda_drive;
 
@@ -22,10 +25,12 @@ module i2c_peripheral_tb ();
 
   i2c_peripheral DUT (
       .tx (tx),
+      .rst(rst),
       .scl(scl),
       .sda(sda),
       .rx (rx),
-      .rw (rw)
+      .rw (rw),
+      .debug(debug)
   );
 
   assign scl_drive = clk;
@@ -49,41 +54,41 @@ module i2c_peripheral_tb ();
     ////// TEST WRITING //////
 
     // Signal START
-    sda_drive = 1;
-    #7;
-    sda_drive = 0;
-    #1;
+    // sda_drive = 1;
+    // #7;
+    // sda_drive = 0;
+    // #1;
 
-    // Write device address
-    for (ii = 6; 0 <= ii; ii = ii - 1) begin
-      sda_drive = device_address[ii];
-      #4;
-    end
-    sda_drive = 0'b0;
-    #4;  // Write W
-    sda_drive = 1'bz;
-    #4;  // Wait for ACK
+    // // Write device address
+    // for (ii = 6; 0 <= ii; ii = ii - 1) begin
+    //   sda_drive = device_address[ii];
+    //   #4;
+    // end
+    // sda_drive = 0'b0;
+    // #4;  // Write W
+    // sda_drive = 1'bz;
+    // #4;  // Wait for ACK
 
-    // Write memory address
-    for (ii = 0; ii < 8; ii = ii + 1) begin
-      sda_drive = memory_address[ii];
-      #4;
-    end
-    sda_drive = 1'bz;
-    #4;  // Wait for ACK
+    // // Write memory address
+    // for (ii = 0; ii < 8; ii = ii + 1) begin
+    //   sda_drive = memory_address[ii];
+    //   #4;
+    // end
+    // sda_drive = 1'bz;
+    // #4;  // Wait for ACK
 
-    // Write memory value
-    for (ii = 0; ii < 8; ii = ii + 1) begin
-      sda_drive = memory_value[ii];
-      #4;
-    end
-    sda_drive = 1'bz;
-    #4;  // Wait for ACK
+    // // Write memory value
+    // for (ii = 0; ii < 8; ii = ii + 1) begin
+    //   sda_drive = memory_value[ii];
+    //   #4;
+    // end
+    // sda_drive = 1'bz;
+    // #4;  // Wait for ACK
 
-    // Signal STOP
-    #3;
-    sda_drive = 1;
-    #101;
+    // // Signal STOP
+    // #3;
+    // sda_drive = 1;
+    // #101;
 
     ////// TEST READING //////
 
@@ -94,7 +99,7 @@ module i2c_peripheral_tb ();
 
     // Write device address
     for (
-        ii = 0; ii < 7; ii = ii + 1
+        ii = 6; ii >= 0; ii = ii - 1
     ) begin
       sda_drive = device_address[ii];
       #4;
@@ -121,7 +126,9 @@ module i2c_peripheral_tb ();
 
 
     // Write device address
-    for (ii = 0; ii < 7; ii = ii + 1) begin
+    for (
+        ii = 6; ii >= 0; ii = ii - 1
+    ) begin
       sda_drive = device_address[ii];
       #4;
     end

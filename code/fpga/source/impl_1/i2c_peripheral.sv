@@ -30,7 +30,7 @@ module i2c_peripheral #(
   assign sda   = (output_enable == 1) ? sda_out : 1'bz;
   assign scl   = 1'bz;
 
-  assign debug = start;
+  assign debug = counter[0];
 
   // Detect start/stop conditions
   always_ff @(negedge sda or posedge rst) begin : sda_fall
@@ -54,8 +54,8 @@ module i2c_peripheral #(
   // Handle TX/RX
   always_ff @(posedge scl or posedge rst) begin : scl_rise
     if (rst) begin
-        counter <= 0;
-        state <= IDLE;
+      counter <= 0;
+      state   <= IDLE;
     end else begin
       if (start == 1 && state == IDLE) begin
         state   <= DEVICE_ADDRESS;
@@ -85,10 +85,14 @@ module i2c_peripheral #(
           // Acknowledge device address recieved if we are the intended device
           ACK: begin
             if (ADDRESS == rx_reg[7:1]) begin
-              counter <= 0;
               rw <= rx_reg[0];
-              if (rx_reg[0] == 0) state <= RX;
-              else state <= TX;
+              if (rx_reg[0] == 0) begin
+                state   <= RX;
+                counter <= 0;
+              end else begin
+                state <= TX;
+                counter <= 7;
+              end
             end else begin
               state <= IDLE;
             end
@@ -106,8 +110,8 @@ module i2c_peripheral #(
             rx <= rx_reg;
           end
           TX: begin
-            counter <= counter + 1;
-            if (counter == 7) begin
+            counter <= counter - 1;
+            if (counter == 0) begin
               state <= CACK;
             end
           end
@@ -117,7 +121,8 @@ module i2c_peripheral #(
             if (sda == 0) begin  // NACK
               state <= IDLE;
             end else begin  // ACK
-              state <= TX;
+              counter <= 7;
+              state   <= TX;
             end
           end
           default: begin

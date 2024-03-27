@@ -7,21 +7,25 @@ void setup()
 
   Wire.begin();
   Serial.begin(9600);
+  while (!Serial) {;}
 
+  // Wire.beginTransmission(0x42);
+  // Wire.write(0x63);
+  // Wire.endTransmission();
+
+  // delayMicroseconds(100);
+
+  startI2CTransaction();
   Wire.beginTransmission(0x42);
   Wire.write(0x63);
   Wire.endTransmission();
 
-  delayMicroseconds(100);
-
-  digitalWrite(16, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(16, LOW);
-  delayMicroseconds(10);
-
-  Wire.beginTransmission(0x42);
-  Wire.write(0x63);
-  Wire.endTransmission();
+  startI2CTransaction();
+  Wire.requestFrom(0x42, 1);
+  if(Wire.available()) {
+		char c = Wire.read();
+    Serial.println(c, HEX);
+	}
 }
 
 void loop() 
@@ -38,4 +42,10 @@ void loop()
 	// }
 
   // delayMicroseconds(10);
+}
+
+void startI2CTransaction() {
+  digitalWrite(16, HIGH);
+  delayMicroseconds(2);
+  digitalWrite(16, LOW);
 }

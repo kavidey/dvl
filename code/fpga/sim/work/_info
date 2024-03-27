@@ -11,57 +11,57 @@ cModel Technology
 Z0 dZ:/github/dvl/code/fpga/sim
 vdff
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1711517613
+Z2 !s110 1711525450
 !i10b 1
 !s100 NZF<`WH5nWG6[:_c[oLCb2
 Ia1fmz2DSQBQlgde<W?eP@2
 S1
 R0
-Z3 w1711006038
+w1711006038
 8Z:/github/dvl/code/fpga/source/impl_1/dff.sv
 FZ:/github/dvl/code/fpga/source/impl_1/dff.sv
-!i122 29
+!i122 113
 L0 1 14
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-Z5 OT;L;2021.4;73
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 OT;L;2021.4;73
 r1
 !s85 0
 31
-Z6 !s108 1711517613.000000
+Z5 !s108 1711525450.000000
 !s107 Z:/github/dvl/code/fpga/source/impl_1/dff.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/dff.sv|
 !s101 -O0
 !i113 1
-Z7 o-work work -O0
-Z8 tCvgOpt 0
+Z6 o-work work -O0
+Z7 tCvgOpt 0
 vdvl_top
 R1
 R2
 !i10b 1
-!s100 PMo85J[M@;mZ8JoF=JE]I3
-I`IYgAR5<OOVVnZMz8I@QV0
+!s100 ^D3geAP`7OE6D0Wmi]jnm2
+IbW`KEMd[9hBVbdc>7C^9n2
 S1
 R0
-w1711512802
+w1711523780
 8Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv
 FZ:/github/dvl/code/fpga/source/impl_1/dvl_top.sv
-!i122 28
-L0 8 53
+!i122 112
+L0 8 62
+R3
 R4
-R5
 r1
 !s85 0
 31
-R6
+R5
 !s107 Z:/github/dvl/code/fpga/source/impl_1/dvl_params.sv|Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv|
 !s101 -O0
 !i113 1
+R6
 R7
-R8
 vh_bridge
 R1
-R2
+Z8 !s110 1711525449
 !i10b 1
 !s100 DgnJLW4Vg6=UV7CPMHN7:0
 I<T?hF9PU@;@;05zBZSfZh1
@@ -70,70 +70,70 @@ R0
 w1711318480
 8Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv
 FZ:/github/dvl/code/fpga/source/impl_1/h_bridge.sv
-!i122 27
+!i122 111
 L0 8 44
+R3
 R4
-R5
 r1
 !s85 0
 31
-R6
+Z9 !s108 1711525449.000000
 !s107 Z:/github/dvl/code/fpga/source/impl_1/dvl_params.sv|Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv|
 !s101 -O0
 !i113 1
+R6
 R7
-R8
 vi2c_peripheral
 R1
-R2
+R8
 !i10b 1
-!s100 iKSZUGA7hL<=0PI3UX0]g1
-IOVkN6D@c:QYZM?09I:kDz0
+!s100 BL5m[RR=GenFR<o8bMaaI0
+IVk4g:iiCWYC]F956b[RFX1
 S1
 R0
-w1711517609
+w1711525278
 8Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv
 FZ:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv
-!i122 26
-L0 1 158
+!i122 110
+L0 1 168
+R3
 R4
-R5
 r1
 !s85 0
 31
-!s108 1711517612.000000
+R9
 !s107 Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv|
 !s101 -O0
 !i113 1
+R6
 R7
-R8
 vi2c_peripheral_tb
 R1
 R2
 !i10b 1
-!s100 ;b2[@Ldf`nd?bQY^[XiH^1
-I7X5K:l:hcBV0gU=CZII=01
+!s100 ^mMl@DFZ=Dz0C>3aKcE_]1
+IZCPISje3BX4aQ2S96nfEk0
 S1
 R0
-R3
+w1711525444
 8Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
 FZ:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
-!i122 30
-L0 5 145
+!i122 114
+L0 5 152
+R3
 R4
-R5
 r1
 !s85 0
 31
-R6
+R5
 !s107 Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv|
 !s101 -O0
 !i113 1
+R6
 R7
-R8
 vsysclk_pll
 !s125 LATTICE_CONN
 R2
@@ -141,43 +141,43 @@ R2
 !s100 GPB`z[gkJ>@459^PIBXao1
 ImR7Tc]?RJ2`FzVZSlSY_A3
 R0
-Z9 w1711006154
-Z10 8Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
-Z11 FZ:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
-!i122 31
+Z10 w1711006154
+Z11 8Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
+Z12 FZ:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
+!i122 115
 L0 11 39
+R3
 R4
-R5
 r1
 !s85 0
 31
-R6
+R5
 !s107 Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
-Z12 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
+Z13 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
 !s101 -O0
 !i113 1
+R6
 R7
-R8
 vsysclk_pll_ipgen_lscc_pll
 R2
 !i10b 1
 !s100 Wdoc_bLe0]Pg]0^oo@0Td0
 Io5]?fTTAkF5QTiTlKeXN:1
 R0
-R9
 R10
 R11
-!i122 31
+R12
+!i122 115
 L0 105 120
+R3
 R4
-R5
 r1
 !s85 0
 31
-R6
-Z13 !s107 Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
-R12
+R5
+Z14 !s107 Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
+R13
 !s101 -O0
 !i113 1
+R6
 R7
-R8
