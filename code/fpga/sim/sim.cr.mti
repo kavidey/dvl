@@ -1,4 +1,11 @@
-Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
+Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module dvl_top
+
+Top level modules:
+	dvl_top
+
+} {} {}} Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
 -- Compiling module sysclk_pll
 -- Compiling module sysclk_pll_ipgen_lscc_pll
@@ -19,12 +26,5 @@ Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oc
 
 Top level modules:
 	h_bridge
-
-} {} {}} Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
-Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
--- Compiling module i2c_peripheral_tb
-
-Top level modules:
-	i2c_peripheral_tb
 
 } {} {}}

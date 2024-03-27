@@ -139,8 +139,8 @@ module i2c_peripheral_tb ();
 
     sda_drive = 1'bz;
     #32;
-    sda_drive = 1'b0;
-    #4;  // Send ACK
+    sda_drive = 1'b1;
+    #4;  // Send NACK
 
     // Signal STOP
     #3;

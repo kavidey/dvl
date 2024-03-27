@@ -358,3 +358,19 @@ restart -f
 run 100000
 # Starting Testbench...
 run 100000
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# 6 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral
+run 100000
+# Starting Testbench...
+run 100000
+run 100000

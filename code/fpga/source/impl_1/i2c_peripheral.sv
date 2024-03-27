@@ -11,7 +11,7 @@ module i2c_peripheral #(
     output logic debug,
     output logic rw  // 0 is read, 1 is write
 );
-  enum int {
+  enum logic [2:0] {
     IDLE,
     DEVICE_ADDRESS,
     ACK,
@@ -21,28 +21,26 @@ module i2c_peripheral #(
     CACK  // controller acknowledge
   } state;
 
-  logic [2:0] counter;
+  logic [2:0] counter, counter_p1, counter_n1;
   logic [7:0] rx_reg;
   logic start, stop;
+
+  assign counter_p1 = counter + 1;
+  assign counter_n1 = counter - 1;
 
   // Output Logic
   logic sda_out, output_enable;
   assign sda   = (output_enable == 1) ? sda_out : 1'bz;
   assign scl   = 1'bz;
 
-  assign debug = state == CACK;
+  assign debug = rw;
 
   // Detect start/stop conditions
   always_ff @(negedge sda or posedge rst) begin : sda_fall
     if (rst) start <= 0;
     else begin
-      if (state == IDLE && scl == 1 && rst == 0 && output_enable == 0) start <= 1;
+      if (state == IDLE && scl == 1 && rst == 0) start <= 1;
     end
-    // if (state == IDLE && scl == 1 && rst == 0) begin
-    //   start <= 1;
-    // end else start <= 0;
-    // else if (state == IDLE) start <= 0;
-    // else start <= start & (~stop);
   end
 
   always_ff @(posedge sda) begin : sda_rise
@@ -60,7 +58,7 @@ module i2c_peripheral #(
       if (start == 1 && state == IDLE) begin
         state   <= DEVICE_ADDRESS;
         rx_reg  <= {rx_reg[6:0], sda};
-        counter <= counter + 1;
+        counter <= counter_p1;
         if (counter == 7) begin
           state <= ACK;
         end
@@ -77,7 +75,7 @@ module i2c_peripheral #(
           // above in the if statement
           DEVICE_ADDRESS: begin
             rx_reg  <= {rx_reg[6:0], sda};
-            counter <= counter + 1;
+            counter <= counter_p1;
             if (counter == 7) begin
               state <= ACK;
             end
@@ -99,7 +97,7 @@ module i2c_peripheral #(
           end
           RX: begin
             rx_reg  <= {sda, rx_reg[7:1]};
-            counter <= counter + 1;
+            counter <= counter_p1;
             if (counter == 7) begin
               state <= ACK2;
             end
@@ -110,9 +108,10 @@ module i2c_peripheral #(
             rx <= rx_reg;
           end
           TX: begin
-            counter <= counter - 1;
             if (counter == 0) begin
               state <= CACK;
+            end else begin
+              counter <= counter_n1;
             end
           end
           // Get ACK/NACK from controller
