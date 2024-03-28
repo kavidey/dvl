@@ -47,7 +47,7 @@ module dvl_top (
   assign tx = 8'b00000000;
 
   i2c_peripheral_clk #(7'h42) i2c_peripheral_clk (
-      .clk(clk),
+      .clk(hsclk),
       .rst(rst),
       .tx(tx),
       .scl(scl),
