@@ -44,11 +44,12 @@ module dvl_top (
   logic [7:0] tx, rx;
   logic rw;
 
-  assign tx = 8'b10101010;
+  assign tx = 8'b00000000;
 
-  i2c_peripheral #(7'h42) i2c_peripheral (
-      .tx(tx),
+  i2c_peripheral_clk #(7'h42) i2c_peripheral_clk (
+      .clk(clk),
       .rst(rst),
+      .tx(tx),
       .scl(scl),
       .sda(sda),
       .rx(rx),

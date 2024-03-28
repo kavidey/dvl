@@ -11,7 +11,7 @@ cModel Technology
 Z0 dZ:/github/dvl/code/fpga/sim
 vdff
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1711531288
+Z2 !s110 1711649392
 !i10b 1
 !s100 NZF<`WH5nWG6[:_c[oLCb2
 Ia1fmz2DSQBQlgde<W?eP@2
@@ -20,14 +20,14 @@ R0
 w1711006038
 8Z:/github/dvl/code/fpga/source/impl_1/dff.sv
 FZ:/github/dvl/code/fpga/source/impl_1/dff.sv
-!i122 119
+!i122 268
 L0 1 14
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 Z4 OT;L;2021.4;73
 r1
 !s85 0
 31
-Z5 !s108 1711531288.000000
+Z5 !s108 1711649392.000000
 !s107 Z:/github/dvl/code/fpga/source/impl_1/dff.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/dff.sv|
 !s101 -O0
@@ -38,15 +38,15 @@ vdvl_top
 R1
 R2
 !i10b 1
-!s100 O3N_1^]YPcgXCXzI_SULR0
-IQREiRVTjo@26me3J:_gHN0
+!s100 =77;OLL[00Y=hkT`jMo[h3
+I:MR7CG6OXAzg^@zcTJ5J<0
 S1
 R0
-w1711529824
+w1711646703
 8Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv
 FZ:/github/dvl/code/fpga/source/impl_1/dvl_top.sv
-!i122 118
-L0 8 62
+!i122 267
+L0 8 63
 R3
 R4
 r1
@@ -61,7 +61,7 @@ R6
 R7
 vh_bridge
 R1
-R2
+Z8 !s110 1711649391
 !i10b 1
 !s100 DgnJLW4Vg6=UV7CPMHN7:0
 I<T?hF9PU@;@;05zBZSfZh1
@@ -70,14 +70,14 @@ R0
 w1711318480
 8Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv
 FZ:/github/dvl/code/fpga/source/impl_1/h_bridge.sv
-!i122 117
+!i122 266
 L0 8 44
 R3
 R4
 r1
 !s85 0
 31
-R5
+Z9 !s108 1711649391.000000
 !s107 Z:/github/dvl/code/fpga/source/impl_1/dvl_params.sv|Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv|
 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv|
 !s101 -O0
@@ -86,25 +86,50 @@ R6
 R7
 vi2c_peripheral
 R1
-R2
+R8
 !i10b 1
-!s100 _5eOGYl]66<OYYdD3CcNQ3
-IS7A9OPZ>GVDB>EoWC`=R;3
+!s100 k1=m4J08S_9OFo4B^bn_g2
+Ioj4VdRBTaC?4>H]bEW@li3
 S1
 R0
-w1711531060
+w1711599651
 8Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv
 FZ:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv
-!i122 116
-L0 1 174
+!i122 265
+L0 1 171
+R3
+R4
+r1
+!s85 0
+31
+R9
+!s107 Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv|
+!s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv|
+!s101 -O0
+!i113 1
+R6
+R7
+vi2c_peripheral_clk
+R1
+R2
+!i10b 1
+!s100 8=lWm8o8k3Il@aDFBT]ZU2
+IMD;HOhefV[iNALJ:CDW8=3
+S1
+R0
+w1711649387
+8Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv
+FZ:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv
+!i122 272
+L0 1 199
 R3
 R4
 r1
 !s85 0
 31
 R5
-!s107 Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv|
-!s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv|
+!s107 Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv|
+!s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv|
 !s101 -O0
 !i113 1
 R6
@@ -113,15 +138,15 @@ vi2c_peripheral_tb
 R1
 R2
 !i10b 1
-!s100 ^mMl@DFZ=Dz0C>3aKcE_]1
-IZCPISje3BX4aQ2S96nfEk0
+!s100 mK0QVe:H3U>KR>J25D3Ui2
+IYWS<odLPaNQ:BNfhnzOIb0
 S1
 R0
-w1711525444
+w1711648460
 8Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
 FZ:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
-!i122 120
-L0 5 152
+!i122 269
+L0 5 193
 R3
 R4
 r1
@@ -134,17 +159,40 @@ R5
 !i113 1
 R6
 R7
+vi2c_slave
+R2
+!i10b 1
+!s100 IYOk>REYae=6<[@CF[>>H0
+IG>Yd<UU0hd27B9?ONFaY60
+R0
+w1711599644
+8Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v
+FZ:/github/dvl/code/fpga/source/impl_1/i2c_slave.v
+!i122 271
+L0 32 472
+R3
+R4
+r1
+!s85 0
+31
+R5
+!s107 Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v|
+!s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v|
+!s101 -O0
+!i113 1
+R6
+R7
 vsysclk_pll
 !s125 LATTICE_CONN
-Z8 !s110 1711531289
+R2
 !i10b 1
 !s100 GPB`z[gkJ>@459^PIBXao1
 ImR7Tc]?RJ2`FzVZSlSY_A3
 R0
-Z9 w1711006154
-Z10 8Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
-Z11 FZ:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
-!i122 121
+Z10 w1711006154
+Z11 8Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
+Z12 FZ:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
+!i122 270
 L0 11 39
 R3
 R4
@@ -152,22 +200,22 @@ r1
 !s85 0
 31
 R5
-!s107 Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
-Z12 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
+Z13 !s107 Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
+Z14 !s90 -reportprogress|300|-work|work|-stats=none|Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
 !s101 -O0
 !i113 1
 R6
 R7
 vsysclk_pll_ipgen_lscc_pll
-R8
+R2
 !i10b 1
 !s100 Wdoc_bLe0]Pg]0^oo@0Td0
 Io5]?fTTAkF5QTiTlKeXN:1
 R0
-R9
 R10
 R11
-!i122 121
+R12
+!i122 270
 L0 105 120
 R3
 R4
@@ -175,8 +223,8 @@ r1
 !s85 0
 31
 R5
-Z13 !s107 Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v|
-R12
+R13
+R14
 !s101 -O0
 !i113 1
 R6

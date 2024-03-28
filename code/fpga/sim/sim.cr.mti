@@ -5,13 +5,12 @@ Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oc
 Top level modules:
 	dvl_top
 
-} {} {}} Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
+} {} {}} Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
--- Compiling module sysclk_pll
--- Compiling module sysclk_pll_ipgen_lscc_pll
+-- Compiling module h_bridge
 
 Top level modules:
-	sysclk_pll
+	h_bridge
 
 } {} {}} Z:/github/dvl/code/fpga/source/impl_1/dff.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/dff.sv
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
@@ -20,11 +19,33 @@ Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oc
 Top level modules:
 	dff
 
-} {} {}} Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv
+} {} {}} Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
 Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
--- Compiling module h_bridge
+-- Compiling module sysclk_pll
+-- Compiling module sysclk_pll_ipgen_lscc_pll
 
 Top level modules:
-	h_bridge
+	sysclk_pll
+
+} {} {}} Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module i2c_slave
+
+Top level modules:
+	i2c_slave
+
+} {} {}} Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module i2c_peripheral
+
+Top level modules:
+	i2c_peripheral
+
+} {} {}} Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv {1 {vlog -work work -stats=none Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv
+Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+-- Compiling module i2c_peripheral_clk
+
+Top level modules:
+	i2c_peripheral_clk
 
 } {} {}}

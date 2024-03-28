@@ -2,32 +2,43 @@
 # do Z:/github/dvl/code/fpga/sim/sim.mdo
 # Loading project sim
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
-# Start time: 19:23:57 on Mar 26,2024
+# Start time: 09:40:10 on Mar 28,2024
 # vlog -reportprogress 300 "+incdir+Z:/github/dvl/code/fpga/sysclk_pll/rtl" -work work Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v -suppress 2388 
 # -- Compiling module sysclk_pll
 # -- Compiling module sysclk_pll_ipgen_lscc_pll
 # 
 # Top level modules:
 # 	sysclk_pll
-# End time: 19:23:57 on Mar 26,2024, Elapsed time: 0:00:00
+# End time: 09:40:10 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
-# Start time: 19:23:57 on Mar 26,2024
-# vlog -reportprogress 300 -sv -mfcu "+incdir+Z:/github/dvl/code/fpga/source/impl_1" -work work Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv Z:/github/dvl/code/fpga/source/impl_1/dff.sv Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv 
+# Start time: 09:40:10 on Mar 28,2024
+# vlog -reportprogress 300 "+incdir+Z:/github/dvl/code/fpga/source/impl_1" -work work Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v -suppress 2388 
+# -- Compiling module i2c_slave
+# 
+# Top level modules:
+# 	i2c_slave
+# End time: 09:40:10 on Mar 28,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Lattice FPGA Edition vlog 2021.4 Compiler 2021.10 Oct 14 2021
+# Start time: 09:40:10 on Mar 28,2024
+# vlog -reportprogress 300 -sv -mfcu "+incdir+Z:/github/dvl/code/fpga/source/impl_1" -work work Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral.sv Z:/github/dvl/code/fpga/source/impl_1/h_bridge.sv Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv Z:/github/dvl/code/fpga/source/impl_1/dff.sv Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv 
 # -- Compiling module i2c_peripheral
 # -- Compiling module h_bridge
 # -- Compiling module dvl_top
 # -- Compiling module dff
 # -- Compiling module i2c_peripheral_tb
+# -- Compiling module i2c_peripheral_clk
 # 
 # Top level modules:
+# 	i2c_peripheral
 # 	dvl_top
 # 	dff
 # 	i2c_peripheral_tb
-# End time: 19:23:57 on Mar 26,2024, Elapsed time: 0:00:00
+# End time: 09:40:10 on Mar 28,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -voptargs="+acc" -lib work -L pmi_work -L ovi_ice40up -suppress vsim-7033,vsim-8630,3009,3389 i2c_peripheral_tb 
-# Start time: 19:23:57 on Mar 26,2024
+# Start time: 09:40:10 on Mar 28,2024
 # //  ModelSim - Lattice FPGA Edition 2021.4 Oct 14 2021
 # //
 # //  Copyright 1991-2021 Mentor Graphics Corporation
@@ -43,164 +54,240 @@
 # //
 # Loading sv_std.std
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
+# Loading work.i2c_peripheral_clk
 # .main_pane.wave.interior.cs.body.pw.wf
 # Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+run 100000
+# Starting Testbench...
+run 100000
+run 100000
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+run 100000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+run 1000000
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv failed with 1 errors.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 1 failed with 1 error.
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+run 100000
+# Starting Testbench...
+run 100000
+run 100000
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+run 300000
+# Starting Testbench...
 add wave -position end  sim:/i2c_peripheral_tb/DUT/ADDRESS
+add wave -position end  sim:/i2c_peripheral_tb/DUT/rst
+add wave -position end  sim:/i2c_peripheral_tb/DUT/clk
 add wave -position end  sim:/i2c_peripheral_tb/DUT/tx
 add wave -position end  sim:/i2c_peripheral_tb/DUT/scl
 add wave -position end  sim:/i2c_peripheral_tb/DUT/sda
 add wave -position end  sim:/i2c_peripheral_tb/DUT/rx
+add wave -position end  sim:/i2c_peripheral_tb/DUT/debug
 add wave -position end  sim:/i2c_peripheral_tb/DUT/rw
 add wave -position end  sim:/i2c_peripheral_tb/DUT/state
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_state
+add wave -position end  sim:/i2c_peripheral_tb/DUT/startstop
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_startstop
 add wave -position end  sim:/i2c_peripheral_tb/DUT/counter
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_counter
 add wave -position end  sim:/i2c_peripheral_tb/DUT/rx_reg
-add wave -position end  sim:/i2c_peripheral_tb/DUT/start
-add wave -position end  sim:/i2c_peripheral_tb/DUT/stop
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_rx_reg
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_rx
 add wave -position end  sim:/i2c_peripheral_tb/DUT/sda_out
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_sda_out
 add wave -position end  sim:/i2c_peripheral_tb/DUT/output_enable
+add wave -position end  sim:/i2c_peripheral_tb/DUT/next_output_enable
+add wave -position end  sim:/i2c_peripheral_tb/DUT/sda_negedge
+add wave -position end  sim:/i2c_peripheral_tb/DUT/sda_posedge
+add wave -position end  sim:/i2c_peripheral_tb/DUT/scl_posedge
+add wave -position end  sim:/i2c_peripheral_tb/DUT/scl_negedge
+add wave -position end  sim:/i2c_peripheral_tb/DUT/sda_last
+add wave -position end  sim:/i2c_peripheral_tb/DUT/sda_curr
+add wave -position end  sim:/i2c_peripheral_tb/DUT/scl_last
+add wave -position end  sim:/i2c_peripheral_tb/DUT/scl_curr
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-run 100000
+run 300000
 # Starting Testbench...
-# WARNING: No extended dataflow license exists
-run 100000
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
-# Closing VCD file "i2c_peripheral_tb.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 6, found 5.
-#    Time: 0 ps  Iteration: 0  Instance: /i2c_peripheral_tb/DUT File: Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv Line: 23
-# ** Warning: (vsim-3722) Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv(23): [TFMPC] - Missing connection for port 'debug'.
-run 100000
-# Starting Testbench...
-run 100000
-# Compile of i2c_peripheral.sv was successful.
-# Compile of h_bridge.sv was successful.
-# Compile of dvl_top.sv was successful.
-# Compile of dff.sv was successful.
-# Compile of i2c_peripheral_tb.sv was successful.
-# Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 6, found 5.
-#    Time: 0 ps  Iteration: 0  Instance: /i2c_peripheral_tb/DUT File: Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv Line: 23
-# ** Warning: (vsim-3722) Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv(23): [TFMPC] - Missing connection for port 'debug'.
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 6, found 5.
-#    Time: 0 ps  Iteration: 0  Instance: /i2c_peripheral_tb/DUT File: Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv Line: 23
-# ** Warning: (vsim-3722) Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv(23): [TFMPC] - Missing connection for port 'debug'.
-# Compile of i2c_peripheral.sv was successful.
-# Compile of h_bridge.sv was successful.
-# Compile of dvl_top.sv was successful.
-# Compile of dff.sv was successful.
-# Compile of i2c_peripheral_tb.sv was successful.
-# Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
-run 100000
-run 100000
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 6, found 5.
-#    Time: 0 ps  Iteration: 0  Instance: /i2c_peripheral_tb/DUT File: Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv Line: 23
-# ** Warning: (vsim-3722) Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv(23): [TFMPC] - Missing connection for port 'debug'.
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
-run 100000
-run 100000
-run 100000
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 7, found 5.
-#    Time: 0 ps  Iteration: 0  Instance: /i2c_peripheral_tb/DUT File: Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv Line: 23
-# ** Warning: (vsim-3722) Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv(23): [TFMPC] - Missing connection for port 'rst'.
-# ** Warning: (vsim-3722) Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv(23): [TFMPC] - Missing connection for port 'debug'.
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
-run 100000
-run 100000
-run 100000
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -208,13 +295,15 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 restart -f
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
+run 300000
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -222,14 +311,14 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-run 100000
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -237,15 +326,14 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-retart -f
-# invalid command name "retart"
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 200000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -253,13 +341,14 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 200000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -267,13 +356,14 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -281,37 +371,38 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-# Compile of i2c_peripheral.sv was successful.
-# Compile of h_bridge.sv was successful.
-# Compile of dvl_top.sv was successful.
-# Compile of dff.sv was successful.
-# Compile of i2c_peripheral_tb.sv was successful.
-# Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
-run 100000
-add wave -position 1  sim:/i2c_peripheral_tb/device_address
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv failed with 1 errors.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 1 failed with 1 error.
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-run 100000
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
@@ -319,58 +410,186 @@ run 100000
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
-# Closing VCD file "i2c_peripheral_tb.vcd"
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
-# Starting Testbench...
-add wave -position 2  sim:/i2c_peripheral_tb/ii
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
-run 100000
 # Compile of i2c_peripheral.sv was successful.
 # Compile of h_bridge.sv was successful.
 # Compile of dvl_top.sv was successful.
 # Compile of dff.sv was successful.
 # Compile of i2c_peripheral_tb.sv was successful.
 # Compile of sysclk_pll.v was successful.
-# 6 compiles, 0 failed with no errors.
-restart -f
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 300000
 # Closing VCD file "i2c_peripheral_tb.vcd"
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
 # Loading work.i2c_peripheral_tb
-# Loading work.i2c_peripheral
-run 100000
+# Loading work.i2c_peripheral_clk
 # Starting Testbench...
-run 100000
-run 100000
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 200000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+restart -f;run 300000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 500000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 500000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+restart -f;run 400000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 400000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 400000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 400000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 400000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...
+# Compile of i2c_peripheral.sv was successful.
+# Compile of h_bridge.sv was successful.
+# Compile of dvl_top.sv was successful.
+# Compile of dff.sv was successful.
+# Compile of i2c_peripheral_tb.sv was successful.
+# Compile of sysclk_pll.v was successful.
+# Compile of i2c_slave.v was successful.
+# Compile of i2c_peripheral_clk.sv was successful.
+# 8 compiles, 0 failed with no errors.
+restart -f;run 400000
+# Closing VCD file "i2c_peripheral_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.i2c_peripheral_tb
+# Loading work.i2c_peripheral_clk
+# Starting Testbench...

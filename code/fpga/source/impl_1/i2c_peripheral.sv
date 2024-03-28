@@ -33,7 +33,7 @@ module i2c_peripheral #(
   assign sda   = (output_enable == 1) ? sda_out : 1'bz;
   assign scl   = 1'bz;
 
-  assign debug = rw;
+  assign debug = state == ACK;
 
   // Detect start/stop conditions
   always_ff @(negedge sda or posedge rst) begin : sda_fall
@@ -108,10 +108,9 @@ module i2c_peripheral #(
             rx <= rx_reg;
           end
           TX: begin
-            if (counter == 0) begin
+            counter <= counter_p1;
+            if (counter == 7) begin
               state <= CACK;
-            end else begin
-              counter <= counter_n1;
             end
           end
           // Get ACK/NACK from controller

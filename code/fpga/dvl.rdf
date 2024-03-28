@@ -24,6 +24,9 @@
         <Source name="pinout.pdc" type="Physical Constraints File" type_short="PDC">
             <Options/>
         </Source>
+        <Source name="sim/sim.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
     </Implementation>
     <Strategy name="Strategy1" file="dvl1.sty"/>
 </RadiantProject>
