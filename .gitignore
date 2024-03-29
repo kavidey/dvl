@@ -24,3 +24,7 @@ code/fpga/dvl_tcr.dir/
 .vscode/
 
 code/stm32_i2c_test/Output/
+
+pcb/simulation/fm_demod/fm_demod/History/
+
+pcb/simulation/fm_demod/fm_demod/Project Logs for fm_demod/
