@@ -1,15 +1,14 @@
-<RadiantSimulationProject simType="ModelSim" language="1" name="sim" version="2.0" stage="0" path=".">
-    <Source langstandard="System Verilog" type="VERILOG" path="source/impl_1/i2c_peripheral.sv" include="none" worklib="work"/>
-    <Source langstandard="System Verilog" type="VERILOG" path="source/impl_1/h_bridge.sv" include="none" worklib="work"/>
-    <Source langstandard="System Verilog" type="VERILOG" path="source/impl_1/dvl_top.sv" include="none" worklib="work"/>
-    <Source langstandard="System Verilog" type="VERILOG" path="source/impl_1/dff.sv" include="none" worklib="work"/>
-    <Source langstandard="System Verilog" type="VERILOG" path="source/impl_1/i2c_peripheral_tb.sv" include="none" worklib="work"/>
-    <Source langstandard="" type="VERILOG" path="sysclk_pll/rtl/sysclk_pll.v" include="none" worklib="work"/>
-    <Source langstandard="Verilog 2001" type="VERILOG" path="source/impl_1/i2c_slave.v" include="none" worklib="work"/>
-    <Source langstandard="System Verilog" type="VERILOG" path="source/impl_1/i2c_peripheral_clk.sv" include="none" worklib="work"/>
+<RadiantSimulationProject path="." version="2.0" stage="0" name="sim" simType="ModelSim" language="1">
+    <Source path="source/impl_1/i2c_peripheral.sv" type="VERILOG" langstandard="System Verilog" include="none" worklib="work"/>
+    <Source path="source/impl_1/h_bridge.sv" type="VERILOG" langstandard="System Verilog" include="none" worklib="work"/>
+    <Source path="source/impl_1/dvl_top.sv" type="VERILOG" langstandard="System Verilog" include="none" worklib="work"/>
+    <Source path="source/impl_1/dff.sv" type="VERILOG" langstandard="System Verilog" include="none" worklib="work"/>
+    <Source path="source/impl_1/i2c_peripheral_tb.sv" type="VERILOG" langstandard="System Verilog" include="none" worklib="work"/>
+    <Source path="sysclk_pll/rtl/sysclk_pll.v" type="VERILOG" langstandard="" include="none" worklib="work"/>
+    <Source path="source/impl_1/i2c_peripheral_clk.sv" type="VERILOG" langstandard="System Verilog" include="none" worklib="work"/>
     <SimLib value="pmi_work ovi_ice40up"/>
     <GlbInc value=""/>
     <Macro value=""/>
     <Udo value=""/>
-    <TopModule language="VERILOG" name="i2c_peripheral_tb" instance=""/>
+    <TopModule instance="" name="i2c_peripheral_tb" language="VERILOG"/>
 </RadiantSimulationProject>

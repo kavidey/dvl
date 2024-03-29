@@ -6,14 +6,12 @@ if {![file exists "Z:/github/dvl/code/fpga/sim/sim.mpf"]} {
 	project addfile "Z:/github/dvl/code/fpga/source/impl_1/dff.sv" verilog
 	project addfile "Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv" verilog
 	project addfile "Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v" verilog
-	project addfile "Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v" verilog
 	project addfile "Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_clk.sv" verilog
 	vlib  work
 	vdel -lib work -all 
 	vlib work
 
 	vlog  "+incdir+Z:/github/dvl/code/fpga/sysclk_pll/rtl" -work work  "Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v" -suppress 2388
-	vlog  "+incdir+Z:/github/dvl/code/fpga/source/impl_1" -work work  "Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v" -suppress 2388
 	vlog -sv -mfcu \
 	"+incdir+Z:/github/dvl/code/fpga/source/impl_1" \
  -work work \

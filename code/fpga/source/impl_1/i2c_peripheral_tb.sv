@@ -12,7 +12,7 @@ module i2c_peripheral_tb ();
   logic rw;
   logic debug, rst;
   logic [7:0] tx, rx;
-  assign tx  = 7'h66;
+  assign tx  = 8'b10101010;
 
   assign rst = 0;
 

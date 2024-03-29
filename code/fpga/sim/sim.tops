@@ -3,4 +3,3 @@ dvl_top,/,Z:/github/dvl/code/fpga/source/impl_1/dvl_top.sv
 dff,/,Z:/github/dvl/code/fpga/source/impl_1/dff.sv
 i2c_peripheral_tb,/,Z:/github/dvl/code/fpga/source/impl_1/i2c_peripheral_tb.sv
 sysclk_pll,/,Z:/github/dvl/code/fpga/sysclk_pll/rtl/sysclk_pll.v
-i2c_slave,/,Z:/github/dvl/code/fpga/source/impl_1/i2c_slave.v

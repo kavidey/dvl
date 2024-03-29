@@ -6,7 +6,7 @@
 `include "dvl_params.sv"
 
 module dvl_top (
-    // input logic [9:0] adc,
+    input logic [9:0] adc,
     input logic rst,
 
     inout logic sda,
@@ -44,7 +44,9 @@ module dvl_top (
   logic [7:0] tx, rx;
   logic rw;
 
-  assign tx = 8'b00000000;
+    // assign tx = 8'b00110011;
+    assign tx = rx;
+//   assign tx = adc[7:0];
 
   i2c_peripheral_clk #(7'h42) i2c_peripheral_clk (
       .clk(hsclk),

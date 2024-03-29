@@ -41,7 +41,7 @@ module i2c_peripheral_clk #(
   assign sda   = (output_enable == 1) ? sda_out : 1'bz;
   assign scl   = 1'bz;
 
-  assign debug = state == ACK;
+  assign debug = sda;
 
   logic sda_negedge, sda_posedge, scl_posedge, scl_negedge;
   logic sda_last, sda_curr, scl_last, scl_curr;
@@ -132,6 +132,7 @@ module i2c_peripheral_clk #(
                 next_rw = 1;
               end else begin
                 next_output_enable = 1;
+                next_sda_out = tx[7];
                 next_counter = 8;
                 next_state = TX;
                 next_rw = 0;
