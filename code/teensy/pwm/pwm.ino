@@ -11,11 +11,11 @@ Teensy_PWM *PWM_L, *PWM_R, *PWM_DEMOD;
 
 #define TRIGGER_PIN 4
 
-uint32_t duty_cycle_50 = DUTY_CYCLE(50);
-uint32_t center_frequency = 750000;
-uint32_t bandwidth = 50000;
+int duty_cycle_50 = DUTY_CYCLE(50);
+int center_frequency = 750000;
+int bandwidth = 10000;
 
-uint32_t current_frequency = 0;
+int current_frequency = 0;
 
 void setup() {
   // Setup Serial
@@ -53,12 +53,22 @@ void loop() {
     PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
     PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
 
-    delayMicroseconds(2000);
+    delayMicroseconds(100);
+
+    // current_frequency = center_frequency - bandwidth;
+
+    // for (int i = -bandwidth; i < bandwidth; i = i+(bandwidth/1000)) {
+    //   current_frequency = center_frequency - i;
+    //   PWM_L->setPWM(PWM_L_PIN, current_frequency, duty_cycle_50);
+    //   PWM_R->setPWM(PWM_R_PIN, current_frequency, duty_cycle_50);
+    //   PWM_DEMOD->setPWM(PWM_DEMOD_PIN, current_frequency, duty_cycle_50);
+    //   delayMicroseconds(1);
+    // }
   }
   PWM_L->setPWM_manual(PWM_L_PIN, 0);
   PWM_R->setPWM_manual(PWM_R_PIN, 0);
   PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
-  delayMicroseconds(2000);
+  delay(10);
 }
 
 void flexPwmInvertPolarity(uint8_t pin, bool inversePolarity) {
