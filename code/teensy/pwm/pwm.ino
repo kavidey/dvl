@@ -10,12 +10,12 @@
 Teensy_PWM *PWM_L, *PWM_R, *PWM_DEMOD;
 
 #define TRIGGER_PIN 4
+#define MODE_PIN 5
 
 int duty_cycle_50 = DUTY_CYCLE(50);
 int center_frequency = 750000;
-int bandwidth = 10000;
-
-int current_frequency = 0;
+// int bandwidth = 10000;
+// int current_frequency = 0;
 
 void setup() {
   // Setup Serial
@@ -42,33 +42,41 @@ void setup() {
   // flexPwmInvertPolarity(PWM_Pins[2], false);
   // flexPwmInvertPolarity(PWM_Pins[2], false);
 
-  // Setup Trigger Pin
+  // Setup communication pins
   pinMode(TRIGGER_PIN, INPUT_PULLUP);
+  pinMode(MODE_PIN, INPUT_PULLUP);
 }
 
 void loop() {
-  // Burst
-  if (!digitalReadFast(TRIGGER_PIN)) {
-    PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
-    PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
-    PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
+  if (digitalReadFast(MODE_PIN)) {
+    // Burst
+    if (!digitalReadFast(TRIGGER_PIN)) {
+      PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
+      PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
+      PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
 
-    delayMicroseconds(100);
+      delayMicroseconds(100);
 
-    // current_frequency = center_frequency - bandwidth;
+      // current_frequency = center_frequency - bandwidth;
 
-    // for (int i = -bandwidth; i < bandwidth; i = i+(bandwidth/1000)) {
-    //   current_frequency = center_frequency - i;
-    //   PWM_L->setPWM(PWM_L_PIN, current_frequency, duty_cycle_50);
-    //   PWM_R->setPWM(PWM_R_PIN, current_frequency, duty_cycle_50);
-    //   PWM_DEMOD->setPWM(PWM_DEMOD_PIN, current_frequency, duty_cycle_50);
-    //   delayMicroseconds(1);
-    // }
+      // for (int i = -bandwidth; i < bandwidth; i = i+(bandwidth/1000)) {
+      //   current_frequency = center_frequency - i;
+      //   PWM_L->setPWM(PWM_L_PIN, current_frequency, duty_cycle_50);
+      //   PWM_R->setPWM(PWM_R_PIN, current_frequency, duty_cycle_50);
+      //   PWM_DEMOD->setPWM(PWM_DEMOD_PIN, current_frequency, duty_cycle_50);
+      //   delayMicroseconds(1);
+      // }
+    }
+    PWM_L->setPWM_manual(PWM_L_PIN, 0);
+    PWM_R->setPWM_manual(PWM_R_PIN, 0);
+    PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
+    delay(10);
+  } else {
+      PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
+      PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
+      PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
+      // PWM_DEMOD->setPWM(PWM_DEMOD_PIN, 730000, duty_cycle_50);
   }
-  PWM_L->setPWM_manual(PWM_L_PIN, 0);
-  PWM_R->setPWM_manual(PWM_R_PIN, 0);
-  PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
-  delay(10);
 }
 
 void flexPwmInvertPolarity(uint8_t pin, bool inversePolarity) {
