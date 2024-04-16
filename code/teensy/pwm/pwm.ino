@@ -48,9 +48,9 @@ void setup() {
 }
 
 void loop() {
-  if (digitalReadFast(MODE_PIN)) {
-    // Burst
-    if (!digitalReadFast(TRIGGER_PIN)) {
+  if (!digitalReadFast(TRIGGER_PIN)) {
+    if (digitalReadFast(MODE_PIN)) {
+      // Burst
       PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
       PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
       PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
@@ -66,16 +66,17 @@ void loop() {
       //   PWM_DEMOD->setPWM(PWM_DEMOD_PIN, current_frequency, duty_cycle_50);
       //   delayMicroseconds(1);
       // }
-    }
-    PWM_L->setPWM_manual(PWM_L_PIN, 0);
-    PWM_R->setPWM_manual(PWM_R_PIN, 0);
-    PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
-    delay(10);
-  } else {
+    } else {
       PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
       PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
       PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
       // PWM_DEMOD->setPWM(PWM_DEMOD_PIN, 730000, duty_cycle_50);
+    }
+  } else {
+    PWM_L->setPWM_manual(PWM_L_PIN, 0);
+    PWM_R->setPWM_manual(PWM_R_PIN, 0);
+    PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
+    delay(10);
   }
 }
 
