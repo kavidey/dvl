@@ -1,6 +1,7 @@
 #define _PWM_LOGLEVEL_ 0
 
 #include "Teensy_PWM.h"
+#include <vector>
 
 #define DUTY_CYCLE(x) ((uint32_t)x * MAX_16BIT) / 100
 
@@ -48,14 +49,16 @@ void setup() {
 }
 
 void loop() {
+  Serial.print(!digitalReadFast(TRIGGER_PIN));
+  Serial.println(!digitalReadFast(MODE_PIN));
   if (!digitalReadFast(TRIGGER_PIN)) {
-    if (digitalReadFast(MODE_PIN)) {
+    if (!digitalReadFast(MODE_PIN)) {
       // Burst
       PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
       PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
       PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
 
-      delayMicroseconds(100);
+      delayMicroseconds(150);
 
       // current_frequency = center_frequency - bandwidth;
 
@@ -66,6 +69,11 @@ void loop() {
       //   PWM_DEMOD->setPWM(PWM_DEMOD_PIN, current_frequency, duty_cycle_50);
       //   delayMicroseconds(1);
       // }
+
+      PWM_L->setPWM_manual(PWM_L_PIN, 0);
+      PWM_R->setPWM_manual(PWM_R_PIN, 0);
+      PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
+      delay(10);
     } else {
       PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
       PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
