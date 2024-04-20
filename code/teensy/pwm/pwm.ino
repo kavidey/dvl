@@ -29,7 +29,7 @@ void setup() {
   // Initialize PWM
   PWM_L = new Teensy_PWM(PWM_L_PIN, center_frequency, 0);
   PWM_R = new Teensy_PWM(PWM_R_PIN, center_frequency, 0);
-  PWM_DEMOD = new Teensy_PWM(PWM_DEMOD_PIN, center_frequency, duty_cycle_50);
+  PWM_DEMOD = new Teensy_PWM(PWM_DEMOD_PIN, center_frequency-100, duty_cycle_50);
 
   PWM_L->setPWM();
   PWM_R->setPWM();
