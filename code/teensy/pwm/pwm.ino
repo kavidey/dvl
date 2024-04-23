@@ -58,7 +58,7 @@ void loop() {
       PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
       PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, duty_cycle_50);
 
-      delayMicroseconds(150);
+      delayMicroseconds(300);
 
       // current_frequency = center_frequency - bandwidth;
 
@@ -73,7 +73,7 @@ void loop() {
       PWM_L->setPWM_manual(PWM_L_PIN, 0);
       PWM_R->setPWM_manual(PWM_R_PIN, 0);
       PWM_DEMOD->setPWM_manual(PWM_DEMOD_PIN, 0);
-      delay(10);
+      delay(50);
     } else {
       PWM_L->setPWM_manual(PWM_L_PIN, duty_cycle_50);
       PWM_R->setPWM_manual(PWM_R_PIN, duty_cycle_50);
